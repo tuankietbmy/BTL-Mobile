@@ -8,7 +8,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = () => {
     // Thực hiện logic đăng nhập, ví dụ gọi API
     navigation.navigate('HomeScreen');
-  };
+  }; 
 
   return (
     <View style={styles.container}>
