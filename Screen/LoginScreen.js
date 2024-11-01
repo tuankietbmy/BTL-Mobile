@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+ 
   const handleLogin = () => {
     // Thực hiện logic đăng nhập, ví dụ gọi API
     navigation.navigate('HomeScreen');
