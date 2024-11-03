@@ -5,7 +5,7 @@ import LoginScreen from './Screen/LoginScreen'
 import HomeScreen from './Screen/LoginScreen'
 
 const Stack = createStackNavigator();
- 
+
 export default function App() {
   return (
     <NavigationContainer>
