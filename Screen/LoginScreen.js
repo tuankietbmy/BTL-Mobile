@@ -6,13 +6,13 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Thực hiện logic đăng nhập, ví dụ gọi API
-    navigation.navigate('HomeScreen');
+    // Điều hướng đến trang Home và truyền username
+    navigation.navigate('Home', { username });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome To Shop !!</Text>
+      <Text style={styles.title}>Welcome To Shop!!</Text>
       <Text style={styles.subtitle}>Sign in to continue</Text>
 
       <TextInput
@@ -33,10 +33,6 @@ const LoginScreen = ({ navigation }) => {
 
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
-      Or
-      <TouchableOpacity style={styles.signUpButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>Sign Up</Text>
       </TouchableOpacity>
     </View>
   );
@@ -75,20 +71,6 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   loginButton: {
-    width: '100%',
-    height: 50,
-    backgroundColor: '#4a90e2',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#4a90e2',
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
-    elevation: 5,
-    marginBottom:10
-  },
-  signUpButton: {
-    marginTop:10,
     width: '100%',
     height: 50,
     backgroundColor: '#4a90e2',
