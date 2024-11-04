@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { ChevronLeftIcon } from '@radix-ui/react-icons';
 import { useState, useRef } from 'react';
+
 export default function Screen2({ navigation }) {
   const [selectedPayment, setSelectedPayment] = useState('visa');
 
@@ -177,6 +178,7 @@ export default function Screen2({ navigation }) {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
