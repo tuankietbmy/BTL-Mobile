@@ -19,6 +19,7 @@ export default function Screen1({navigation}) {
   const [isPrice, setIsPrice] = useState(false);
   const [isAvg, setIsAvg] = useState(false);
   const [isOther, setIsOther] = useState(false);
+  // const animation = useRef(new Animated.Value(0)).current;
   const [rating, setRating] = useState(0);
   const [priceRange, setPriceRange] = useState([10, 1000]); // Khởi tạo giá trị min và max
 
@@ -48,7 +49,10 @@ export default function Screen1({navigation}) {
     setIsOther(!isOther);
   };
 
-  
+  // const animatedHeight = animation.interpolate({
+  //   inputRange: [0, 1],
+  //   outputRange: [0, 150], // chiều cao khi thu gọn và mở rộng
+  // });
 
   const [options, setOptions] = useState([
     { id: 1, label: 'Instant (2 hours delivery)', checked: false },
@@ -348,7 +352,7 @@ export default function Screen1({navigation}) {
                 borderColor: '#8c8c8c',
                 alignItems: 'center',
               }}
-              onPress ={()=>navigation.navigate('Screen2')}
+              onPress ={()=>navigation.navigate('Screen3')}
               
               >
               <Image style={{height:31,width:29}}  source={require('../assets/location.png')}/>
