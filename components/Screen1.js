@@ -352,7 +352,7 @@ export default function Screen1({navigation}) {
                 borderColor: '#8c8c8c',
                 alignItems: 'center',
               }}
-              onPress ={()=>navigation.navigate('Screen3')}
+              onPress ={()=>navigation.navigate('Screen2')}
               
               >
               <Image style={{height:31,width:29}}  source={require('../assets/location.png')}/>
