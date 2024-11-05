@@ -12,7 +12,7 @@ export default function Home({ route, navigation }) {
           <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.svg')} />
           <Image style={{ width: 30, height: 30 }} source={require('../assets/avatar.svg')} />
         </View>
-      </View>
+      </View> 
       <View style={{display:'flex',flexDirection:'row',margin:20}}>
         <View  style={{marginLeft:'10%',backgroundColor:'#DDDDDD' ,height:30,display:'flex',flexDirection:'row' ,width:'70%'}}>
           <Image style={{marginLeft:10, marginRight:10,width:20,height:20 ,alignSelf:'center'}}  source={require('../assets/search.svg')}/>
