@@ -7,7 +7,7 @@ export default function Listproduct({route , navigation }) {
     switch (itemText) {
       case 'Electronic':
         return require('../assets/elec.jpg');
-      case 'Fruit':
+      case 'Fruit': 
         return require('../assets/fruit.jpg');
       case 'Fashion':
         return require('../assets/fashion.jpg');
