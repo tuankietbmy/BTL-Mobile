@@ -12,7 +12,7 @@ export default function Listproduct({route , navigation }) {
       case 'Fashion':
         return require('../assets/fashion.jpg');
       case 'Beauty':
-        return require('../assets/beauty.jpg');
+        return require('../assets/beauty.jpg'); 
       
       default:
         return require('../assets/elec.jpg'); // ảnh mặc định
