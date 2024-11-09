@@ -11,7 +11,7 @@ export default function Listproduct({route , navigation }) {
       .then(data => {
         setTasks(data);
       })
-  }, []);
+  }, []); 
 
 
 const renderItem = ({ item }) => (
