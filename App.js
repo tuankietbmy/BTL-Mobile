@@ -15,7 +15,7 @@ export default function App() {
         <Stack.Screen name="Listproduct" component={Listproduct} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
-  //  <Listproduct/>
+   // <Listproduct/>
   );
 }
 

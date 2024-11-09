@@ -43,25 +43,25 @@ export default function Home({ route, navigation }) {
       <ScrollView>
         <View style={{display:'flex',flexDirection:'row',margin:20,justifyContent:'space-around'}}>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity onPress={navigateToListElec}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListElec}>
               <Image style={{width:70,height:70}}  source={require('../assets/electron.svg')}/>
               <Text>Electronic</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity onPress={navigateToListFa}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListFa}>
               <Image style={{width:70,height:70}}  source={require('../assets/fashion.svg')}/>
               <Text>Fashion</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity onPress={navigateToListBea}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListBea}>
               <Image style={{width:70,height:70}}  source={require('../assets/beauty.svg')}/>
               <Text>Beauty</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity onPress={navigateToListFrui}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListFrui}>
               <Image style={{width:70,height:70}}  source={require('../assets/fruit.svg')}/>
               <Text>Fruit</Text>
             </TouchableOpacity>
