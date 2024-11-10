@@ -11,13 +11,14 @@ export default function Listproduct({route , navigation }) {
       .then(data => {
         setTasks(data);
       })
-  }, []); 
+  }, []);
 
 
 const renderItem = ({ item }) => (
     <View >
       <ScrollView style={{marginLeft:'5%',marginBottom:10,marginRight:'5%'}}>
-        <View style={{ display: 'flex', flexDirection: 'row', borderWidth:1,borderColor:'silver',padding:'2%' }}>
+        <TouchableOpacity>
+          <View style={{ display: 'flex', flexDirection: 'row', borderWidth:1,borderColor:'silver',padding:'2%' }}>
           
             <Image style={{width:50,height:50,marginRight:10}} source={{uri: item.image}}/>
             <View style={{justifyContent:'center'}}>
@@ -32,10 +33,10 @@ const renderItem = ({ item }) => (
             </View>
             <View style={{marginLeft:'auto',justifyContent:'center'}}>
               <Image style={{width:30,height:30,alignSelf: 'flex-end',marginBottom:10}} source={require('../assets/add.svg')}/>
-              <Text>{item.price}</Text>
+              <Text style={{color:'blue'}}>{item.price}</Text>
             </View>
-          
-        </View>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
