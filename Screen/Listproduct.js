@@ -12,7 +12,7 @@ export default function Listproduct({route , navigation }) {
         setTasks(data);
       })
   }, []);
- 
+
 
 const renderItem = ({ item }) => (
     <View >
