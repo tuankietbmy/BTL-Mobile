@@ -5,7 +5,7 @@ export default function ProductDetail({ route, navigation }) {
   const { product } = route.params;
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // Hàm xử lý khi nhấn vào nút "Mua ngay"
+  // Hàm xử lý khi nhấn vào nút "Mua ngay" 
   const handleBuyNow = () => {
     Alert.alert('Thành công', 'Sản phẩm đã được thêm vào giỏ hàng!', [{ text: 'OK' }]);
   };
