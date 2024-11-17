@@ -9,7 +9,7 @@ export default function ProductDetail({ route, navigation }) {
   const handleBuyNow = () => {
     Alert.alert('Thành công', 'Sản phẩm đã được thêm vào giỏ hàng!', [{ text: 'OK' }]);
   };
-
+ 
   // Fetch sản phẩm liên quan dựa trên loại sản phẩm
   useEffect(() => {
     fetch('https://653f4fde9e8bd3be29e03c12.mockapi.io/btl')
