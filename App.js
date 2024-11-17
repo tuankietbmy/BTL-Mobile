@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './Screen/LoginScreen';
 import Home from './Screen/Home';
 import Listproduct from './Screen/Listproduct';
+import ProductDetail from './Screen/ProductDetail';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }}/>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Listproduct" component={Listproduct} options={{ headerShown: false }} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
    // <Listproduct/>

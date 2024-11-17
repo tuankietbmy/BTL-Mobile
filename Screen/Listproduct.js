@@ -15,31 +15,30 @@ export default function Listproduct({route , navigation }) {
 
 
 const renderItem = ({ item }) => (
-    <View >
-      <ScrollView style={{marginLeft:'5%',marginBottom:10,marginRight:'5%'}}>
-        <TouchableOpacity>
-          <View style={{ display: 'flex', flexDirection: 'row', borderWidth:1,borderColor:'silver',padding:'2%' }}>
-          
-            <Image style={{width:50,height:50,marginRight:10}} source={{uri: item.image}}/>
-            <View style={{justifyContent:'center'}}>
-              <Text style={{ fontWeight: 'bold' ,marginBottom:10}}>{item.name}</Text>
-              <View style={{display:'flex',flexDirection:'row'}}>
-                <Image style={{width:10,height:10}} source={require('../assets/star.svg')}/>
-                <Image style={{width:10,height:10}} source={require('../assets/star.svg')}/>
-                <Image style={{width:10,height:10}} source={require('../assets/star.svg')}/>
-                <Image style={{width:10,height:10}} source={require('../assets/star.svg')}/>
-                <Image style={{width:10,height:10}} source={require('../assets/star.svg')}/>
-              </View>
-            </View>
-            <View style={{marginLeft:'auto',justifyContent:'center'}}>
-              <Image style={{width:30,height:30,alignSelf: 'flex-end',marginBottom:10}} source={require('../assets/add.svg')}/>
-              <Text style={{color:'blue'}}>{item.price}</Text>
-            </View>
+  <TouchableOpacity
+    onPress={() => navigation.navigate('ProductDetail', { product: item })}
+  >
+    <View style={{ marginLeft: '5%', marginBottom: 10, marginRight: '5%' }}>
+      <View style={{ display: 'flex', flexDirection: 'row', borderWidth: 1, borderColor: 'silver', padding: '2%' }}>
+        <Image style={{ width: 50, height: 50, marginRight: 10 }} source={{ uri: item.image }} />
+        <View style={{ justifyContent: 'center' }}>
+          <Text style={{ fontWeight: 'bold', marginBottom: 10 }}>{item.name}</Text>
+          <View style={{ display: 'flex', flexDirection: 'row' }}>
+            <Image style={{ width: 10, height: 10 }} source={require('../assets/star.svg')} />
+            <Image style={{ width: 10, height: 10 }} source={require('../assets/star.svg')} />
+            <Image style={{ width: 10, height: 10 }} source={require('../assets/star.svg')} />
+            <Image style={{ width: 10, height: 10 }} source={require('../assets/star.svg')} />
+            <Image style={{ width: 10, height: 10 }} source={require('../assets/star.svg')} />
           </View>
-        </TouchableOpacity>
-      </ScrollView>
+        </View>
+        <View style={{ marginLeft: 'auto', justifyContent: 'center' }}>
+          <Image style={{ width: 30, height: 30, alignSelf: 'flex-end', marginBottom: 10 }} source={require('../assets/add.svg')} />
+          <Text style={{ color: 'blue' }}>{item.price}</Text>
+        </View>
+      </View>
     </View>
-  );
+  </TouchableOpacity>
+);
   const { itemText } = route.params;
   const filteredTasks = tasks.filter((item: any) => item.type === itemText);
   const getImageSource = () => {
