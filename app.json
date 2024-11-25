@@ -1,14 +1,14 @@
 {
   "expo": {
     "name": "btl-mobile",
-    "slug": "snack-36ea7ebb-19cd-4f2a-ba1d-abefec0dc220",
+    "slug": "snack-34e756a3-97c2-4162-96f5-e9ace20998aa",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain", 
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {

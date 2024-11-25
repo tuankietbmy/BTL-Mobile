@@ -15,6 +15,9 @@ export default function Home({ route, navigation }) {
   const navigateToListFrui = () => {
     navigation.navigate('Listproduct', { itemText: 'Fruit' });
   };
+  const navigateToSearch = () => {
+    navigation.navigate('Search');
+  };
   return (
     <View style={styles.container}>
       <View style={{ display: 'flex', flexDirection: 'row', margin: 10, justifyContent: 'space-between', marginBottom: 20 ,marginTop:20}}>
@@ -25,18 +28,18 @@ export default function Home({ route, navigation }) {
         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Welcome {username}</Text>   
         
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-          <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.svg')} />
-          <Image style={{ width: 30, height: 30 }} source={require('../assets/avatar.svg')} />
+          <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.jpg')} />
+          <Image style={{ width: 30, height: 30 }} source={require('../assets/avatar.png')} />
         </View>
       </View>
       <View style={{display:'flex',flexDirection:'row',marginBottom:10}}>
         <View  style={{marginLeft:'5%',backgroundColor:'#DDDDDD' ,height:30,display:'flex',flexDirection:'row' ,width:'70%'}}>
-          <Image style={{marginLeft:10, marginRight:10,width:20,height:20 ,alignSelf:'center'}}  source={require('../assets/search.svg')}/>
-          <TextInput  placeholder="Search for product"></TextInput>
+          <Image style={{marginLeft:10, marginRight:10,width:30,height:30 ,alignSelf:'center'}}  source={require('../assets/search.png')}/>
+          <TextInput style={{width:'100%',placeholderTextColor:"#8a8a8a"}} placeholder="Search for product"></TextInput>
         </View>
-        <View  style={{marginLeft:'10%' ,backgroundColor:'#DDDDDD' ,height:30,display:'flex',flexDirection:'row' ,width:'10%',marginRight:'10%'}}>
+        <View  style={{marginLeft:'10%' ,height:30,display:'flex',flexDirection:'row' ,width:'10%',marginRight:'10%'}}>
           <TouchableOpacity>
-            <Image style={{width:30,height:30}}  source={require('../assets/list.svg')}/>
+            <Image style={{width:30,height:30}}  source={require('../assets/list.jpg')}/>
           </TouchableOpacity>
         </View>
       </View>
@@ -44,25 +47,33 @@ export default function Home({ route, navigation }) {
         <View style={{display:'flex',flexDirection:'row',margin:20,justifyContent:'space-around'}}>
           <View style={{alignItems:'center'}}>
             <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListElec}>
-              <Image style={{width:70,height:70}}  source={require('../assets/electron.svg')}/>
+              <View style={{alignItems:'center',backgroundColor:'#33CCFF',borderRadius:'50%',padding:5}}>
+                <Image style={{width:70,height:70}}  source={require('../assets/electronic.png')}/>
+              </View>
               <Text>Electronic</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
             <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListFa}>
-              <Image style={{width:70,height:70}}  source={require('../assets/fashion.svg')}/>
+              <View style={{alignItems:'center',backgroundColor:'#FF6600',borderRadius:'50%',padding:5}}>
+                <Image style={{width:70,height:70}}  source={require('../assets/giay.png')}/>
+              </View>
               <Text>Fashion</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
             <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListBea}>
-              <Image style={{width:70,height:70}}  source={require('../assets/beauty.svg')}/>
+              <View style={{alignItems:'center',backgroundColor:'#FF66FF',borderRadius:'50%',padding:5}}>
+                <Image style={{width:70,height:70}}  source={require('../assets/makeup.png')}/>
+              </View>
               <Text>Beauty</Text>
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListFrui}>
-              <Image style={{width:70,height:70}}  source={require('../assets/fruit.svg')}/>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListBea}>
+              <View style={{alignItems:'center',backgroundColor:'green',borderRadius:'50%',padding:5}}>
+                <Image style={{width:70,height:70}}  source={require('../assets/fruit.png')}/>
+              </View>
               <Text>Fruit</Text>
             </TouchableOpacity>
           </View>
@@ -75,18 +86,18 @@ export default function Home({ route, navigation }) {
               <Text style={{color:'white',margin:'auto'}}>Buy Now</Text>
             </TouchableOpacity>
           </View>
-          <Image style={{width:100,height:100,margin:'auto'}}  source={require('../assets/sneaker.svg')}/>
+          <Image style={{width:100,height:100,margin:'auto'}}  source={require('../assets/shose.png')}/>
         </View>
-        <View style={{width:'90%',margin:'5%',display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-          <Image style={{width:150,maxHeight:110}}  source={require('../assets/anh1.jpg')}/>
-          <Image style={{width:150,maxHeight:110}}  source={require('../assets/anh2.jpg')}/>
+        <View style={{margin:'5%',width:'90%',display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+          <Image style={{width:'48%',maxHeight:110}}  source={require('../assets/anh1.jpg')}/>
+          <Image style={{width:'48%',maxHeight:110}}  source={require('../assets/anh2.jpg')}/>
         </View>
-        <View style={{display:'flex',flexDirection:'row'}}>
-          <Text style={{fontWeight:'bold',fontSize:20,marginLeft:'5%'}}>Recommended for you</Text>
-          <Text style={{fontSize:15,marginRight:'auto',margin:'auto',color:'silver'}}>View all</Text>
+        <View style={{marginLeft:'5%',marginRight:'5%',display:'flex',flexDirection:'row',justifyContent:'space-between'}}>
+          <Text style={{fontWeight:'bold',fontSize:20}}>Recommended for you</Text>
+          <Text style={{fontSize:15,color:'silver'}}>View all</Text>
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{margin:'5%'}}>
-          <View style={{margin:10,padding:10,backgroundColor:'#DDDDDD'}}>
+          <View style={{marginTop:10,marginRight:10,marginBottom:10,padding:10,backgroundColor:'#DDDDDD'}}>
             <Image style={{width:100,height:100}}  source={require('../assets/shoes1.svg')}/>
             <Text style={{fontWeight:'bold'}}>Shoes</Text>
             <View style={{display:'flex',flexDirection:'row'}}>
@@ -121,7 +132,7 @@ export default function Home({ route, navigation }) {
           <Image style={{width:30,height:30}}  source={require('../assets/home.svg')}/>
           <Text>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
+        <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToSearch}>
           <Image style={{width:30,height:30}}  source={require('../assets/search.svg')}/>
           <Text>Search</Text>
         </TouchableOpacity>

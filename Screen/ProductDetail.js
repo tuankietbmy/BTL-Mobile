@@ -5,11 +5,11 @@ export default function ProductDetail({ route, navigation }) {
   const { product } = route.params;
   const [relatedProducts, setRelatedProducts] = useState([]);
 
-  // Hàm xử lý khi nhấn vào nút "Mua ngay" 
+  // Hàm xử lý khi nhấn vào nút "Mua ngay"
   const handleBuyNow = () => {
     Alert.alert('Thành công', 'Sản phẩm đã được thêm vào giỏ hàng!', [{ text: 'OK' }]);
   };
- 
+
   // Fetch sản phẩm liên quan dựa trên loại sản phẩm
   useEffect(() => {
     fetch('https://653f4fde9e8bd3be29e03c12.mockapi.io/btl')
