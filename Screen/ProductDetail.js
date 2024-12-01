@@ -4,12 +4,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Alert, Fla
 export default function ProductDetail({ route, navigation }) {
   const { product } = route.params;
   const [relatedProducts, setRelatedProducts] = useState([]);
-
-  // Hàm xử lý khi nhấn vào nút "Mua ngay"
-  const handleBuyNow = () => {
-    Alert.alert('Thành công', 'Sản phẩm đã được thêm vào giỏ hàng!', [{ text: 'OK' }]);
-  };
-
+  
   // Fetch sản phẩm liên quan dựa trên loại sản phẩm
   useEffect(() => {
     fetch('https://653f4fde9e8bd3be29e03c12.mockapi.io/btl')
@@ -31,13 +26,21 @@ export default function ProductDetail({ route, navigation }) {
       <Text style={styles.relatedPrice}>{item.price}</Text>
     </TouchableOpacity>
   );
+  const navigateToPay = () => {
+  navigation.navigate('Pay',{ product: product });
+  };
 
+  
+  
   return (
     <ScrollView style={styles.container}>
       {/* Nút quay lại */}
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-        <Text style={styles.backText}>◀ Back</Text>
-      </TouchableOpacity>
+      <View style={{display:'flex',flexDirection:'row'}}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <Text style={styles.backText}>◀ Back</Text>
+        </TouchableOpacity>
+        <Text style={{marginLeft:'20%',fontSize:20,fontWeight:'bold'}}>Chi tiết sản phẩm</Text>
+      </View>
 
       {/* Hình ảnh sản phẩm */}
       <Image source={{ uri: product.image }} style={styles.image} />
@@ -69,9 +72,10 @@ export default function ProductDetail({ route, navigation }) {
         <Text style={styles.description}>{product.description}</Text>
 
         {/* Nút mua hàng */}
-        <TouchableOpacity style={styles.buyButton} onPress={handleBuyNow}>
+        <TouchableOpacity style={styles.buyButton} onPress={navigateToPay}>
           <Text style={styles.buyButtonText}>Mua ngay</Text>
         </TouchableOpacity>
+         
       </View>
 
       {/* Đề xuất sản phẩm */}
@@ -94,6 +98,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f8f8f8',
     padding: 20,
+    paddingBottom:50,
   },
   backButton: {
     marginBottom: 10,
@@ -178,6 +183,7 @@ const styles = StyleSheet.create({
     width: 150,
     marginRight: 15,
     alignItems: 'center',
+    marginBottom:20,
   },
   relatedImage: {
     width: 100,
@@ -192,5 +198,6 @@ const styles = StyleSheet.create({
   relatedPrice: {
     fontSize: 14,
     color: '#FF6347',
+    marginBottom: 10,
   },
 });

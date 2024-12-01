@@ -28,7 +28,10 @@ export default function Home({ route, navigation }) {
         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Welcome {username}</Text>   
         
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-          <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.jpg')} />
+          <TouchableOpacity onPress={() => navigation.navigate('Cart', { cart })}>
+            <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.jpg')} />
+          </TouchableOpacity>
+          
           <Image style={{ width: 30, height: 30 }} source={require('../assets/avatar.png')} />
         </View>
       </View>
@@ -70,7 +73,7 @@ export default function Home({ route, navigation }) {
             </TouchableOpacity>
           </View>
           <View style={{alignItems:'center'}}>
-            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListBea}>
+            <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToListFrui}>
               <View style={{alignItems:'center',backgroundColor:'green',borderRadius:'50%',padding:5}}>
                 <Image style={{width:70,height:70}}  source={require('../assets/fruit.png')}/>
               </View>
@@ -98,7 +101,7 @@ export default function Home({ route, navigation }) {
         </View>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{margin:'5%'}}>
           <View style={{marginTop:10,marginRight:10,marginBottom:10,padding:10,backgroundColor:'#DDDDDD'}}>
-            <Image style={{width:100,height:100}}  source={require('../assets/shoes1.svg')}/>
+            <Image style={{width:100,height:100}}  source={require('../assets/shose1.png')}/>
             <Text style={{fontWeight:'bold'}}>Shoes</Text>
             <View style={{display:'flex',flexDirection:'row'}}>
               <Image style={{width:20,height:20}}  source={require('../assets/star.svg')}/>
@@ -107,7 +110,7 @@ export default function Home({ route, navigation }) {
             </View>
           </View>
           <View style={{margin:10,padding:10,backgroundColor:'#DDDDDD'}}>
-            <Image style={{width:100,height:100}}  source={require('../assets/tablet.svg')}/>
+            <Image style={{width:100,height:100}}  source={require('../assets/tablet.png')}/>
             <Text style={{fontWeight:'bold'}}>Tablet</Text>
             <View style={{display:'flex',flexDirection:'row'}}>
               <Image style={{width:20,height:20}}  source={require('../assets/star.svg')}/>
@@ -116,7 +119,7 @@ export default function Home({ route, navigation }) {
             </View>
           </View>
           <View style={{margin:10,padding:10,backgroundColor:'#DDDDDD'}}>
-            <Image style={{width:100,height:100}}  source={require('../assets/pear.svg')}/>
+            <Image style={{width:100,height:100}}  source={require('../assets/pear.png')}/>
             <Text style={{fontWeight:'bold'}}>Pear</Text>
             <View style={{display:'flex',flexDirection:'row'}}>
               <Image style={{width:20,height:20}}  source={require('../assets/star.svg')}/>
@@ -129,7 +132,7 @@ export default function Home({ route, navigation }) {
       <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',margin:20}}>
   
         <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/home.svg')}/>
+          <Image style={{width:30,height:30}}  source={require('../assets/Home1.png')}/>
           <Text>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToSearch}>
@@ -151,7 +154,7 @@ export default function Home({ route, navigation }) {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

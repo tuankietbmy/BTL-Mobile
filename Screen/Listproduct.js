@@ -115,7 +115,7 @@ const renderItem = ({ item }) => (
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
