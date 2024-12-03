@@ -1,229 +1,96 @@
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  CheckBox,
-  Animated,
-  ScrollView,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
-import { useState } from 'react';
+import React from 'react';
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Search({ navigation }) {
-  const navigateToSearch = () => {
-    navigation.navigate('Search');
-  };
-  const [rating, setRating] = useState(0);
-  const [priceRange, setPriceRange] = useState([10, 1000]); // Giá trị min và max
-
-  const handlePriceChange = (values) => {
-    setPriceRange(values); // Cập nhật price range
-  };
-
-  const [options, setOptions] = useState([
-    { id: 1, label: 'Instant (2 hours delivery)', checked: false },
-    { id: 2, label: 'Express (2 days delivery)', checked: false },
-    { id: 3, label: 'Standard (7-10 days delivery)', checked: false },
-  ]);
-
-  const toggleCheckbox = (id) => {
-    setOptions((prevOptions) =>
-      prevOptions.map((option) =>
-        option.id === id ? { ...option, checked: !option.checked } : option
-      )
-    );
-  };
-
-  const handleRatingPress = (star) => {
-    setRating(star);
-  };
-
   return (
     <View style={styles.container}>
       {/* Header */}
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          margin: 10,
-          justifyContent: 'space-between',
-        }}>
-        <TouchableOpacity
-          style={{ justifyContent: 'center' }}
-          onPress={() => navigation.goBack()}>
-          <Text
-            style={{
-              fontSize: 20,
-              justifyContent: 'center',
-              marginBottom: 'auto',
-              fontWeight: 'bold',
-            }}>
-            ◀
-          </Text>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Text style={styles.headerText}>◀</Text>
         </TouchableOpacity>
-        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Filter</Text>
-        <View style={{ display: 'flex', flexDirection: 'row' }}>
-          <Image
-            style={{ width: 30, height: 30, marginRight: 10 }}
-            source={require('../assets/giohang.jpg')}
-          />
-          <Image
-            style={{ width: 30, height: 30 }}
-            source={require('../assets/avatar.png')}
-          />
-        </View>
+        <Text style={styles.headerText}>Filter</Text>
+        <Ionicons name="cart-outline" size={30} color="black" />
       </View>
 
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={styles.scrollView}>
         {/* Shipping options */}
-        <View>
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Shipping options</Text>
-          <View>
-            {options.map((option) => (
-              <View
-                key={option.id}
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  margin: 8,
-                }}>
-                <CheckBox
-                  style={{ height: 20, width: 20, marginRight: 10 }}
-                  value={option.checked}
-                  onValueChange={() => toggleCheckbox(option.id)}
-                />
-                <Text style={{ fontSize: 18, color: 'gray' }}>
-                  {option.label}
-                </Text>
-              </View>
-            ))}
+          <View style={styles.option}>
+            <Text style={styles.optionText}>Instant (2 hours delivery)</Text>
+          </View>
+          <View style={styles.option}>
+            <Text style={styles.optionText}>Express (2 days delivery)</Text>
+          </View>
+          <View style={styles.option}>
+            <Text style={styles.optionText}>Standard (7-10 days delivery)</Text>
           </View>
         </View>
 
         {/* Price range */}
-        <View>
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Price range</Text>
-          <View style={{ padding: 20, alignSelf: 'center' }}>
-            <View
-              style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-              <Text style={styles.priceText}>${priceRange[0]}</Text>
-              <Text style={styles.priceText}>${priceRange[1]}</Text>
-            </View>
-            <MultiSlider
-              values={[priceRange[0], priceRange[1]]}
-              sliderLength={280}
-              min={0}
-              max={2000}
-              step={10}
-              onValuesChange={handlePriceChange}
-              selectedStyle={{ backgroundColor: 'cyan' }}
-              unselectedStyle={{ backgroundColor: '#d3d3d3' }}
-              containerStyle={{ height: 40 }}
-              trackStyle={{ height: 10 }}
-              markerStyle={{
-                height: 20,
-                width: 20,
-                backgroundColor: 'white',
-                borderWidth: 2,
-                borderColor: 'cyan',
-              }}
-            />
-          </View>
+          <Text style={styles.range}>$10 - $1000</Text>
         </View>
 
         {/* Average review */}
-        <View>
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Average review</Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              marginLeft: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: 120,
-            }}>
-            {[1, 2, 3, 4, 5].map((star) => (
-              <TouchableOpacity
-                key={star}
-                onPress={() => handleRatingPress(star)}>
-                <Icon
-                  name={star <= rating ? 'star' : 'star-o'}
-                  size={30}
-                  color={star <= rating ? '#FFD700' : '#8c8c8c'}
-                  style={{ marginRight: 10 }}
-                />
-              </TouchableOpacity>
-            ))}
+          <View style={styles.rating}>
+            <Ionicons name="star" size={30} color="#FFD700" />
+            <Ionicons name="star" size={30} color="#FFD700" />
+            <Ionicons name="star" size={30} color="#FFD700" />
+            <Ionicons name="star" size={30} color="#FFD700" />
+            <Ionicons name="star-outline" size={30} color="#FFD700" />
           </View>
         </View>
 
         {/* Others */}
-        <View>
+        <View style={styles.section}>
           <Text style={styles.sectionTitle}>Others</Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              paddingHorizontal: 10,
-              paddingVertical: 5,
-            }}>
-            <TouchableOpacity style={styles.otherOption}>
-              <Image
-                style={{ height: 30, width: 40 }}
-                source={require('../assets/arrows.png')}
-              />
-              <Text style={styles.otherOptionText}>30-day Free Return</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.otherOption}>
-              <Image
-                style={{ height: 35, width: 37 }}
-                source={require('../assets/protec.png')}
-              />
-              <Text style={styles.otherOptionText}>Buyer Protection</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.otherOption}>
-              <Image
-                style={{ height: 30, width: 40 }}
-                source={require('../assets/deal.png')}
-              />
-              <Text style={styles.otherOptionText}>Best Deal</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.otherOption}
-              onPress={() => navigation.navigate('Screen2')}>
-              <Image
-                style={{ height: 31, width: 29 }}
-                source={require('../assets/location.png')}
-              />
-              <Text style={styles.otherOptionText}>Ship to Store</Text>
-            </TouchableOpacity>
+          <View style={styles.otherOptions}>
+            <View style={styles.optionItem}>
+              <Image style={styles.icon} source={require('../assets/arrows.png')} />
+              <Text style={styles.optionText}>30-day Free Return</Text>
+            </View>
+            <View style={styles.optionItem}>
+              <Image style={styles.icon} source={require('../assets/protec.png')} />
+              <Text style={styles.optionText}>Buyer Protection</Text>
+            </View>
+            <View style={styles.optionItem}>
+              <Image style={styles.icon} source={require('../assets/deal.png')} />
+              <Text style={styles.optionText}>Best Deal</Text>
+            </View>
+            <View style={styles.optionItem}>
+              <Image style={styles.icon} source={require('../assets/location.png')} />
+              <Text style={styles.optionText}>Ship to Store</Text>
+            </View>
           </View>
         </View>
       </ScrollView>
-      <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',margin:20}}>
-  
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/home.svg')}/>
+
+      {/* Footer */}
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Home')}>
+          <Ionicons name="home" size={30} color="black" />
           <Text>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToSearch}>
-          <Image style={{width:30,height:30}}  source={require('../assets/search.svg')}/>
+        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Search')}>
+          <Ionicons name="search" size={30} color="black" />
           <Text>Search</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/heart.svg')}/>
+        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Favorites')}>
+          <Ionicons name="heart-outline" size={30} color="black" />
           <Text>Favorites</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/chat.svg')}/>
+        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Inbox')}>
+          <Ionicons name="chatbubble-outline" size={30} color="black" />
           <Text>Inbox</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/account.svg')}/>
+        <TouchableOpacity style={styles.footerButton} onPress={() => navigation.navigate('Account', { username })}>
+          <Ionicons name="person-outline" size={30} color="black" />
           <Text>Account</Text>
         </TouchableOpacity>
       </View>
@@ -233,35 +100,77 @@ export default function Search({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
     flex: 1,
+    backgroundColor: 'white',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#f8f8f8',
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  scrollView: {
+    paddingHorizontal: 10,
+  },
+  section: {
+    marginVertical: 15,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    padding: 5,
+    paddingBottom: 5,
   },
-  priceText: {
-    borderWidth: 1,
-    height: 30,
-    width: 70,
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  otherOption: {
-    height: '48%',
-    width: '48%',
-    padding: 10,
+  option: {
+    marginLeft: 10,
     marginVertical: 5,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#8c8c8c',
-    alignItems: 'center',
   },
-  otherOptionText: {
-    fontSize: 13,
-    color: '#333',
-    textAlign: 'center',
-    marginTop: 8,
+  optionText: {
+    fontSize: 16,
+    color: 'gray',
+  },
+  range: {
+    fontSize: 16,
+    color: 'gray',
+    paddingLeft: 10,
+  },
+  rating: {
+    flexDirection: 'row',
+    marginLeft: 10,
+    marginVertical: 10,
+  },
+  otherOptions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  optionItem: {
+    width: '48%', // 2 items per row
+    marginVertical: 10,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 10,
+    padding: 10,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ddd',
+  },
+  icon: {
+    width: 30,
+    height: 30,
+    marginBottom: 10,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#ccc',
+  },
+  footerButton: {
+    alignItems: 'center',
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Image, TextInput, ScrollView } from 'react-native';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 export default function Home({ route, navigation }) {
   const { username } = route.params || {}; // Lấy username từ route.params
   const navigateToListElec = () => {
@@ -28,11 +28,13 @@ export default function Home({ route, navigation }) {
         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Welcome {username}</Text>   
         
         <View style={{ display: 'flex', flexDirection: 'row' }}>
+          {/* Cart Icon */}
           <TouchableOpacity onPress={() => navigation.navigate('Cart', { cart })}>
-            <Image style={{ width: 30, height: 30, marginRight: 10 }} source={require('../assets/giohang.jpg')} />
+            <Ionicons name="cart-outline" size={30} color="black" style={{ marginRight: 10 }} />
           </TouchableOpacity>
           
-          <Image style={{ width: 30, height: 30 }} source={require('../assets/avatar.png')} />
+          {/* Avatar Icon */}
+          <Ionicons name="person-circle-outline" size={30} color="black" />
         </View>
       </View>
       <View style={{display:'flex',flexDirection:'row',marginBottom:10}}>
@@ -131,24 +133,28 @@ export default function Home({ route, navigation }) {
       </ScrollView>
       <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around',margin:20}}>
   
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/Home1.png')}/>
+        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('Home')}>
+          <Ionicons name="home" size={30} color="black" />
           <Text>Home</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity style={{alignItems:'center'}} onPress={navigateToSearch}>
-          <Image style={{width:30,height:30}}  source={require('../assets/search.svg')}/>
+          <Ionicons name="search" size={30} color="black" />
           <Text>Search</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/heart.svg')}/>
+        
+        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('Favorites')}>
+          <Ionicons name="heart-outline" size={30} color="black" />
           <Text>Favorites</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/chat.svg')}/>
+        
+        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('Inbox')}>
+          <Ionicons name="chatbubble-outline" size={30} color="black" />
           <Text>Inbox</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{alignItems:'center'}}>
-          <Image style={{width:30,height:30}}  source={require('../assets/account.svg')}/>
+        
+        <TouchableOpacity style={{alignItems:'center'}} onPress={() => navigation.navigate('Account', { username })}>
+          <Ionicons name="person-outline" size={30} color="black" />
           <Text>Account</Text>
         </TouchableOpacity>
       </View>

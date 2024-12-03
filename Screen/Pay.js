@@ -79,7 +79,7 @@ export default function Pay({ route, navigation }) {
 
       <TouchableOpacity
         style={styles.nextButton}
-        onPress={() => navigation.navigate('Screen3')}
+        onPress={() => navigation.navigate('ConfirmPay',{ price: product.price })}
       >
         <Text style={styles.nextButtonText}>Next</Text>
         <Icon name="arrow-right" style={{ fontSize: 28, color: 'white' }} />
